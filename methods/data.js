@@ -15,11 +15,15 @@ function setBalance(plr, amount, client){
 		client.con.query(sql);
 	})
 }
+const m = require('./messaging')
 
 module.exports = {
-	updateUserBalance(client, plr, amount, type) {
+	updateUserBalance(msg, client, discord, plr, amount, type) {
 
-		if(plr == undefined){return}
+		if(plr == undefined){
+			m.errorReply(msg, "User was not specified", client, discord);
+			return
+		}
 		amount = Number(amount);
 		if(isNaN(amount)){return}
 
@@ -39,7 +43,6 @@ module.exports = {
 			return new Promise(resolve => {
 				client.con.query(`SELECT * FROM userbalances WHERE id = '${player.id}'`, (e, rows) => {
 					if(e) throw e;
-					console.log(rows[0]);
 					if(rows[0] == undefined){
 						setBalance(player, 0, client);
 						resolve("0")

@@ -12,7 +12,6 @@ function sendRules(client, disc, msg){
 				m.utils.getChannel(msg, client.channelId.rules).send(embed);
 				embed = new disc.MessageEmbed()
 				.setColor('#9aedea') // Give it a color in hexidecimal format
-				.setFooter("Abide by the law!");
 			}else{
 				embed.addFields({
 					name: "---------------------",
@@ -27,6 +26,7 @@ function sendRules(client, disc, msg){
 					inline: true})
 			}
 		}
+		embed.setFooter("Abide by the law!");
 		m.utils.getChannel(msg, client.channelId.rules).send(embed);
 	})
 }

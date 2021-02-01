@@ -24,7 +24,7 @@ module.exports = {
 
 	errorReply: (msg, text, client, discord, footer) =>{
 		if(footer == undefined){
-			footer = "Make sure to input correct arguments!";
+			footer = "Make sure to check your command again! Otherwise, report this to @!YayL";
 		}
 
 		var embed = new discord.MessageEmbed()

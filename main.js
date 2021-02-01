@@ -1,5 +1,5 @@
 /* Changes for next Commit:
-	
+	1) Small fix for rules (added footer to the last embed)
 */
 
 // --- Setup stuff ---
@@ -50,7 +50,7 @@ client.channelId = {
 client.settings = {
 	adminCommands: true, // If AdminCommands should even be loaded
 	maxRanks: 2, // Does not include member or everyone. If user is in adminlist this number does not affect them.
-	majorityRate: 1/2,
+	majorityRate: 1/3,
 };
 
 
@@ -61,6 +61,10 @@ client.settings = {
 })
 
 // --- MySQL ---
+
+process.on('exit', function(code) {
+	console.log(code);
+})
 
 client.con = client.mysql.createConnection({
 			host: "localhost",

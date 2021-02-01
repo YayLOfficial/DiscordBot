@@ -12,7 +12,7 @@ module.exports = {
 			if(args[0] == "me"){
 				plr = msg.author;
 			}
-			m.data.updateUserBalance(client, plr, args[1], "add");
+			m.data.updateUserBalance(msg, client, disc, plr, args[1], "add");
 		})
 	}
 }
